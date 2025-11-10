@@ -62,10 +62,8 @@ class CategoryController extends Controller
         ], 201);
     }
 
-    public function show(int $id): JsonResponse
+    public function show(Category $category): JsonResponse
     {
-        $category = $this->categoryService->findById($id);
-
         return response()->json([
             'success' => true,
             'data' => new CategoryResource($category),
